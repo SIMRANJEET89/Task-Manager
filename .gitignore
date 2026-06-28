@@ -1,0 +1,10 @@
+# Node modules (dono frontend aur backend ke)
+node_modules/
+
+# Environment variables (passwords and keys)
+.env
+backend/.env
+frontend/.env
+
+# Mac system files
+.DS_Store
