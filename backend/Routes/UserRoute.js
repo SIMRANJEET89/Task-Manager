@@ -15,6 +15,7 @@ import {
   uploadAvatar,
 } from "../Controller/UserController.js";
 import upload from "../Middleware/multer.js";
+import uploadCloud from "../Config/cloudinary.js";
 
 const UserRouter = express.Router();
 
@@ -29,6 +30,6 @@ UserRouter.put("/update-task", updateTask);
 UserRouter.delete("/delete-task", deleteTask);
 UserRouter.get("/get-profile", getProfile);
 UserRouter.put("/update-profile", updateProfile);
-UserRouter.post("/upload-avatar", upload.single("image"), uploadAvatar);
+UserRouter.post("/upload-avatar", uploadCloud.single("image"), uploadAvatar);
 
 export default UserRouter;

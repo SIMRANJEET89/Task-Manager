@@ -13,7 +13,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/user/register",
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/register`,
         { name, email, password },
         { withCredentials: true },
       );

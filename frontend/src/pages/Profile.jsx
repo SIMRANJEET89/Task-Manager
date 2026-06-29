@@ -15,15 +15,14 @@ const Profile = () => {
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("");
   const navigate = useNavigate()
-  const fileInputRef = import.meta.env ? useRef(null) : null;
+  const fileInputRef =  useRef(null)
 
   const handleSave = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:4000/api/user/update-profile?userId=${loggedInUserId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/update-profile?userId=${loggedInUserId}`,
         { name, email, bio },
-        { withCredentials: true },
-        {
+        { withCredentials: true ,
           headers: {
             Authorization: `Bearer ${savedToken}`,
           },
@@ -60,7 +59,7 @@ const Profile = () => {
       formData.append("userId", loggedInUserId);
 
       const res = await axios.post(
-        "http://localhost:4000/api/user/upload-avatar",
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/upload-avatar`,
         formData,
         {
           headers: {
@@ -89,7 +88,7 @@ const Profile = () => {
       }
 
       const response = await axios.get(
-        `http://localhost:4000/api/user/get-profile?userId=${loggedInUserId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/get-profile?userId=${loggedInUserId}`,
         {
           headers: {
             Authorization: `Bearer ${savedToken}`,
@@ -104,7 +103,7 @@ const Profile = () => {
         setBio(response.data.profile.bio || "");
 
         if (response.data.profile.image) {
-          setImage(`http://localhost:4000/${response.data.profile.image}`);
+          setImage(`${import.meta.env.VITE_BACKEND_URL}${response.data.profile.image}`);
         }
       }
     } catch (error) {

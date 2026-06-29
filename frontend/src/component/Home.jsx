@@ -19,7 +19,7 @@ const Home = () => {
     if (editId) {
       try {
         const response = await axios.put(
-          "http://localhost:4000/api/user/update-task",
+          `${import.meta.env.VITE_BACKEND_URL}/api/user/update-task`,
           {
             _id: editId,
             title: title,
@@ -53,7 +53,7 @@ const Home = () => {
     } else {
       try {
         const response = await axios.post(
-          "http://localhost:4000/api/user/create-task",
+          `${import.meta.env.VITE_BACKEND_URL}/api/user/create-task`,
           { title, description, userId: localStorage.getItem("userId") },
           { withCredentials: true },
         );
@@ -80,7 +80,7 @@ const Home = () => {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
-        "http://localhost:4000/api/user/delete-task",
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/delete-task`,
         { data: { _id: id } },
       );
       if (response.data.success) {
@@ -98,7 +98,7 @@ const Home = () => {
       const saveUserId = localStorage.getItem("userId");
 
       const response = await axios.get(
-        "http://localhost:4000/api/user/get-task",
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/get-task`,
         { params: { userId: saveUserId } },
       );
 
@@ -119,7 +119,7 @@ const Home = () => {
 
     try {
       const response = await axios.put(
-        "http://localhost:4000/api/user/update-task",
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/update-task`,
         { _id: task._id, isCompleted: !task.isCompleted },
       );
 
