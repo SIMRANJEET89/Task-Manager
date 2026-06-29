@@ -8,7 +8,7 @@ dotenv.config()
 connectDB()
 
 const app = express()
-const PORT = 4000 
+const PORT =4000
 
 
 // middleware
@@ -17,6 +17,10 @@ app.use(cors({
     origin :'http://localhost:5173',
     credentials : true
 }))
+
+app.get('/', (req,res) => {
+    res.send('Backend is Running successfully!')
+})
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
