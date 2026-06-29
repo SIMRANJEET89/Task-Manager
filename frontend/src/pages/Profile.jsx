@@ -59,7 +59,7 @@ const Profile = () => {
       formData.append("userId", loggedInUserId);
 
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/user/upload-avatar`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/upload-avatar?userId=${loggedInUserId}`,
         formData,
         {
           headers: {
