@@ -56,7 +56,7 @@ const Profile = () => {
     try {
       const formData = new FormData();
       formData.append("image", file);
-      formData.append("userId", loggedInUserId);
+      // formData.append("userId", loggedInUserId);
 
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/user/upload-avatar?userId=${loggedInUserId}`,
@@ -71,6 +71,7 @@ const Profile = () => {
       );
       if (res.data.success) {
         toast.success("Profile picture uploaded");
+        fetchProfileData()
       } else {
         toast.error(res.data.message);
       }
