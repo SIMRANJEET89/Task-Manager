@@ -1,5 +1,4 @@
 import express from "express";
-import authUser from "../Middleware/authUser.js";
 import {
   createTask,
   deleteTask,
@@ -14,7 +13,6 @@ import {
   updateTask,
   uploadAvatar,
 } from "../Controller/UserController.js";
-import upload from "../Middleware/multer.js";
 import uploadCloud from "../Config/cloudinary.js";
 
 const UserRouter = express.Router();
