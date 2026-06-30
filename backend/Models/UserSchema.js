@@ -3,17 +3,17 @@ import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    email: { type: String, required: true, Unique: true },
+    email: { type: String, required: true, unique: true },
     bio: { type: String },
-    image: { type: String, url: "" },
+    image: { type: String, default: "" },
 
     password: { type: String, required: true },
     otp: { type: Number },
     otpExpiry: { type: Date, default: "" },
   },
-  { timeseries: true },
+  { timestamps: true },
 );
 
-const UserModel = mongoose.model("user", UserSchema);
+const UserModel = mongoose.models.user || mongoose.model("user", UserSchema);
 
 export default UserModel;
