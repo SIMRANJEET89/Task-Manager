@@ -14,7 +14,7 @@ const PORT =4000
 // middleware
 
 app.use(cors({
-    origin : ['https://task-manager-3h6x.vercel.app', 'http://localhost:5174'],
+    origin : ['http://localhost:5173', 'http://localhost:5174'],
     credentials : true,
 }))
 
