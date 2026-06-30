@@ -104,7 +104,10 @@ const Profile = () => {
         setBio(response.data.profile.bio || "");
 
         if (response.data.profile.image) {
-          setImage(`${import.meta.env.VITE_BACKEND_URL}${response.data.profile.image}`);
+          const imgUrl = response.data.profile.image.startsWith('http')
+          ? response.data.profile.image :
+          `${import.meta.env.VITE_BACKEND_URL}${response.data.profile.image}`;
+          setImage(imgUrl)
         }
       }
     } catch (error) {
