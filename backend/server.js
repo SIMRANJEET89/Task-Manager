@@ -20,8 +20,6 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }))
 
-app.options('/(.*)', cors());
-
 app.get('/', (req,res) => {
     res.send('Backend is Running successfully!')
 })
