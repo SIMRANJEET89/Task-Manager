@@ -412,7 +412,7 @@ const updateProfile = async (req,res) => {
 // for upload profile image
 const uploadAvatar = async (req,res) => {
   try {
-    const userId = req.query.userId || req.body.userId;
+    const {userId} = req.body.userId;
 
     if (!req.file) {
       return res.json({
